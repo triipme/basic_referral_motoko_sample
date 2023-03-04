@@ -9,9 +9,15 @@
 
 # dfx temporary files
 .dfx/
+canister_ids.json
+.vessel/
+src/backend/env.mo
 
 # generated files
 src/declarations/
+
+# environment file
+src/backend/.env.mo
 
 # frontend code
 node_modules/

@@ -1,27 +1,30 @@
 {
   "canisters": {
+    "ledger": {
+      "type": "custom",
+      "candid": "src/ledger/ledger.did",
+      "wasm": "src/ledger/ledger.wasm"
+    },
     "backend": {
       "main": "src/backend/main.mo",
-      "type": "motoko"
-    },
-    "frontend": {
-      "dependencies": [
-        "backend"
-      ],
-      "frontend": {
-        "entrypoint": "src/frontend/src/index.html"
-      },
-      "source": [
-        "src/frontend/assets",
-        "dist/frontend/"
-      ],
-      "type": "assets"
+      "type": "motoko",
+      "dependencies": ["ledger"]
     }
   },
   "defaults": {
     "build": {
       "args": "",
-      "packtool": ""
+      "packtool": "vessel sources"
+    },
+    "replica": {
+      "subnet_type":"system"
+    }
+  },
+  "dfx": "0.12.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8080",
+      "type": "ephemeral"
     }
   },
   "version": 1
